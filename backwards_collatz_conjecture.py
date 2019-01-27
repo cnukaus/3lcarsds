@@ -2,14 +2,14 @@ def loop_backwards():
     def backwards(times):
         num = 1
         for i in range(times):
-            if num%3 == 1:
+            if num%3 == 1 and ([num] not in [[0], [1]]):
                 num-=1
                 try:
-                    num//=3
-                except BaseException:
-                    print("B 1")
+                    assert num/3.0=float(num//3), ""
                     num/=3
-                    print("A 1")
+                except AssertionError:
+                    num+=1
+                    num*=2
             else:
                 num*=2
         return num
@@ -30,7 +30,7 @@ def loop_backwards():
             while True:
                 i+=1
                 with open(SAVE_DATA_FILE, "a") as data_file:
-                    data_file.write(str(backwards(i)))
+                    data_file.write(str(backwards(i))+"\n")
     except BaseException as msg:
         print("Err2")
         print(msg)
